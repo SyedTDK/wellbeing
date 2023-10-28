@@ -2,8 +2,10 @@ import prisma from "@/app/libs/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions: AuthOptions = {
+  
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -26,6 +28,10 @@ export const authOptions: AuthOptions = {
         return user as any;
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!
+   })
   ],
   debug: process.env.NODE_ENV === "development",
   session: { strategy: "jwt" },

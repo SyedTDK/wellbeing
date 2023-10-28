@@ -1,5 +1,6 @@
 //Layout of the register page
 "use client";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -82,6 +83,7 @@ const RegisterPage = () => {
           />
         </div>
         <button type="submit" className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Create account</button>
+        <button onClick={() => signIn('google')} className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Login with Google</button>
       </form>
       <div>
         Already have an account? <Link href="/auth/login" className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Login here</Link>

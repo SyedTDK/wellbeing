@@ -29,6 +29,7 @@ const LoginPage = () => {
   };  
 
   return (
+    
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Login Page</h2>
       {alert.message && 
@@ -64,6 +65,7 @@ const LoginPage = () => {
          />
         </div>
         <button type="submit" className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Login</button>
+        <button onClick={() => signIn('google')} className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Login with Google</button>
       </form>
       <div>
         Do not have an account?{" "}
