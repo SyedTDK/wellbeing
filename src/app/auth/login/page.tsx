@@ -1,10 +1,13 @@
 //Layout of the login page
 "use client";
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -26,8 +29,22 @@ const LoginPage = () => {
       console.log({ error });
       setAlert({ status: "error", message: "Something went wrong" });
     }
+    
   };  
 
+  useEffect(() => {
+    const redirectUser = async () => {
+      const session = await getSession(); 
+      if (session) {
+        router.push("/"); // Redirect to the homepage after successful login
+      }
+    };
+
+    redirectUser();
+  }, []);
+
+  
+  
   return (
     
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
