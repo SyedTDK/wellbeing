@@ -36,6 +36,8 @@ const RegisterPage = () => {
     }
 
   return (
+    <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <h1 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Create a New Account</h1>
       {alert.message && 
@@ -89,6 +91,7 @@ const RegisterPage = () => {
         Already have an account? <Link href="/auth/login" className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Login here</Link>
       </div>
     </div>
+    </body>
   );
 };
 
