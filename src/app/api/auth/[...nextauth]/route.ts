@@ -1,3 +1,5 @@
+
+
 import prisma from "@/app/libs/prisma";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth, { AuthOptions } from "next-auth";
@@ -21,7 +23,7 @@ export const authOptions: AuthOptions = {
 
         if (!user) throw new Error("user with that email does not exist");
 
-        // ⚠️ WARNING: DO NOT do this in real-world development
+        // ⚠️ WARNING: Need to change this to encrypt password
         if (user.password !== credentials?.password)
           throw new Error("incorrect password");
 

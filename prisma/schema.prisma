@@ -43,15 +43,15 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Reflection {
-  id          String    @id @default(uuid())
-  title       String
-  complete    Boolean
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  author      User?     @relation(fields: [authorId], references: [id])
-  authorId    Int?      
 
+model Reflection {
+  id            Int           @id @default(autoincrement())
+  promptId      Int
+  responseText  String  
+  createdAt     DateTime      @default(now())
+  author        User          @relation(fields: [authorId], references: [id])
+  authorId      Int      
+  prompt        String
 }
 
 

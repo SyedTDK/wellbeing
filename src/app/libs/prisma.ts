@@ -1,3 +1,5 @@
+//Integrate prisma into our API handlers
+
 import { PrismaClient } from "@prisma/client";
 
 declare global {
