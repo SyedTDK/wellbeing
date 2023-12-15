@@ -38,6 +38,16 @@ export const authOptions: AuthOptions = {
   debug: process.env.NODE_ENV === "development",
   session: { strategy: "jwt" },
   secret: "secret", // store this in a .env file
+  callbacks: {
+    async session({ session, token }) {
+      if (token.sub) {
+        // Safely assign the user ID to the session object
+        session.user = session.user ?? {}; // Ensure session.user is not undefined
+        session.user.id = token.sub;
+      }
+      return session;
+    }
+  }
 };
 
 const handler = NextAuth(authOptions);

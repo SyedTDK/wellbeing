@@ -2,9 +2,8 @@ import Link  from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import prisma from "@/app/libs/prisma";
-import { signOut } from "next-auth/react";
+import { SessionProvider, signOut } from "next-auth/react";
 import LogoutButton from "./components/LogoutButton";
-import { SessionProvider } from "next-auth/react"
 
 //Decodes the current session data and use prisma to retrieve the current user in the database.
 const getCurrentUser = async () => {
@@ -24,7 +23,8 @@ const getCurrentUser = async () => {
 
 export default async function Home() {
   const user = await getCurrentUser();
-  if(!user)
+  
+  if(!user) {
     return (
         <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           <header>
@@ -42,25 +42,24 @@ export default async function Home() {
            <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Journey'>Explore Today's Journey.</Link>
           </div>
         </body>
-    );
-  
-  return
-  <SessionProvider session={session}>
-  <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-    <header>
-      <div className="content px-8 py-2">
-        <nav className="flex items-center justify-between">
-          <h2 className="text-gray-200 font-bold text-2xl">Well Being</h2>
-          <div className="auth flex items-center">
-            <h3 className="text-gray-200 capitalize pr-2">Hello {user.name}</h3>
-            <LogoutButton />
+    )
+  } else {
+    return (
+      <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <header>
+          <div className="content px-8 py-2">
+            <nav className="flex items-center justify-between">
+              <h2 className="text-gray-200 font-bold text-2xl">Well Being</h2>
+              <div className="auth flex items-center">
+                <h3 className="text-gray-200 capitalize pr-2">Hello {user.name}</h3>
+                <LogoutButton />
+              </div>
+            </nav>
           </div>
-        </nav>
-      </div>
-    </header>
-    <div className="w-screen h-screen flex justify-center items-center">
-      <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Journey'>Explore Today's Journey.</Link>
-    </div>
-  </body>
-  </SessionProvider>
+        </header>
+        <div className="w-screen h-screen flex justify-center items-center">
+          <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Journey'>Explore Today's Journey.</Link>
+        </div>
+      </body>
+  )}
 }
