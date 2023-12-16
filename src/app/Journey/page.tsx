@@ -5,6 +5,8 @@ import LogoutButton from "../components/LogoutButton";
 import { FormEvent } from "react";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import Router from 'next/router';
+
 
 //List of all the possible Daily Prompts
 const prompts = [
@@ -21,7 +23,7 @@ const promptId = Math.floor(Math.random() * prompts.length);
 const prompt = prompts[promptId];
 //Initial page for the journey
 
-export default function Journey() {
+const Journey: React.FC = () => {
     const { data: session, status } = useSession();
 
     
@@ -29,31 +31,21 @@ export default function Journey() {
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     
-    const [answerData, setAnswerData] = useState<string>('');
+    const [responseText, setResponseText] = useState<string>('');
     if (status === "authenticated") { //If the user is logged in, display the page
-        const authorId = session?.user?.id;
-        const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
-            e.preventDefault()
+        const authorId = parseInt(session?.user?.id || '0');
+        const submitData = async (e: React.SyntheticEvent) => {
+            e.preventDefault();
             try {
-                const response = await fetch('/api/submitAnswer', {
+              const body = { responseText, promptId, prompt, authorId};
+              await fetch('/api/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ authorId, promptId, answerData }),
-                });
-        
-                if (response.ok) {
-                setMessage('Answer submitted successfully!');
-                setAnswerData('');
-                } else {
-                setMessage('Failed to submit answer.');
-                }
+                body: JSON.stringify(body),
+              });
             } catch (error) {
-                setMessage('An error occurred.');
+              console.log(error);
             }
-            setIsSubmitting(false); 
-        }
+          };
         return <>
             <body>
                 <header>
@@ -68,18 +60,21 @@ export default function Journey() {
                     </div>
                 </header> 
                 <div className="w-screen h-screen flex justify-center items-center">
-                    <form onSubmit={onSubmit} className="rounded px-8 pt-6 pb-8 mb-4">
-                        <div className="md:w-1/3">
-                            <label className="block text-black text-md font-bold mb-2">{prompt}</label>
-                            <input type="text" name="prompt" placeholder="Think Deeply and Enter Your Thoughts Here"
-                                className="block input input-bordered w-full max-w-xs opacity-25 text-black" 
-                                id="answerData"
-                                value={answerData}
-                                onChange={(e) => setAnswerData(e.target.value)}
-                            />
-                        </div>
-                        <button type="submit">Submit Response</button>
+                    <form onSubmit={submitData} className="rounded px-8 pt-6 pb-8 mb-4">
+                        <label className="block text-black text-md font-bold mb-2">{prompt}</label>
+                        <input type="text" name="prompt" placeholder="Think Deeply and Enter Your Thoughts Here"
+                            className="block input input-bordered w-full max-w-xs opacity-25 text-black" 
+                            id="answerData"
+                            value={responseText}
+                            onChange={(e) => setResponseText(e.target.value)}
+                        />
+                        <input 
+                            disabled={!responseText}
+                            type="submit" 
+                            value="Submit"
+                            className="block bg-gray-900 text-gray-200  py-2 px-3 rounded mt-4 hover:bg-gray-800 hover:text-gray-100" />
                     </form>
+                    <div className="text-black">{message}</div>
                 </div>
             </body>   
         </>
@@ -103,3 +98,4 @@ export default function Journey() {
             </body>
         )}
 }
+export default Journey;
