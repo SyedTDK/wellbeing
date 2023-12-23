@@ -1,27 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+//Submission handler that handles a POST request when the users submit their reflection to the endpoint to create new reflections.
+
 import prisma from '../../libs/prisma'
 import { NextResponse } from "next/server";
 
-
-// POST /api/post
-// Required fields in body: title, authorEmail
-// Optional fields in body: content
-//responseText, promptId, prompt, authorId
-// export default async function handle(
-//   req: NextApiRequest,
-//   res: NextApiResponse,
-// ) {
-//   const { responseText, promptId, prompt, authorId } = await req.body
-//   const result = await prisma.reflection.create({
-//     data: {
-//       responseText: responseText,
-//       promptId: promptId,
-//       prompt: prompt,  
-//       author: { connect: { id: authorId } },
-//     },
-//   })
-//   return res.status(201).json(result)
-// }
 
 export async function POST(request: Request) {
   try {
