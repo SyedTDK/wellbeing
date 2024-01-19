@@ -24,6 +24,7 @@ const getCurrentUser = async () => {
 export default async function Home() {
   const user = await getCurrentUser();
   
+  //If the user is not logged in, display the page with the sign in and register buttons.
   if(!user) {
     return (
         <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
@@ -43,6 +44,7 @@ export default async function Home() {
           </div>
         </body>
     )
+  //If the user is logged in, display the page with the sign out button.
   } else {
     return (
       <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">

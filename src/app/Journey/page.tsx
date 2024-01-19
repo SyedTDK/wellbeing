@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
 import LogoutButton from "../components/LogoutButton";
 import { FormEvent } from "react";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Router from 'next/router';
+import { set } from "firebase/database";
 
 
 //List of all the possible Daily Prompts
@@ -21,21 +21,20 @@ const prompts = [
 //Randomly selects a prompt from the list
 const promptId = Math.floor(Math.random() * prompts.length);
 const prompt = prompts[promptId];
-//Initial page for the journey
 
+//Initial page for the journey page
 const Journey: React.FC = () => {
     const { data: session, status } = useSession();
-
-    
     const [message, setMessage] = useState<string>('');
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
-    
     const [responseText, setResponseText] = useState<string>('');
-    if (status === "authenticated") { //If the user is logged in, display the page
+
+    //If the user is logged in, display the page with the prompt and a text box to enter the response.
+    if (status === "authenticated") { 
         const authorId = parseInt(session?.user?.id || '0');
         const submitData = async (e: React.SyntheticEvent) => {
             e.preventDefault();
+            setIsSubmitting(true);
             try {
               const body = { responseText, promptId, prompt, authorId};
               await fetch('/api/submit', {
@@ -44,10 +43,14 @@ const Journey: React.FC = () => {
               });
             } catch (error) {
               console.log(error);
+            } finally {
+              setIsSubmitting(false);
+              setMessage('Your response has been submitted!');
+              setResponseText('');
             }
           };
         return <>
-            <body>
+            <body className="bg-[url('/mountain.jpg')]">
                 <header>
                     <div className="content px-8 py-2">
                         <nav className="flex items-center justify-between">
@@ -62,23 +65,28 @@ const Journey: React.FC = () => {
                 <div className="w-screen h-screen flex justify-center items-center">
                     <form onSubmit={submitData} className="rounded px-8 pt-6 pb-8 mb-4">
                         <label className="block text-black text-md font-bold mb-2">{prompt}</label>
-                        <input type="text" name="prompt" placeholder="Think Deeply and Enter Your Thoughts Here"
-                            className="block input input-bordered w-full max-w-xs opacity-25 text-black" 
+                        <input type="text" name="prompt" placeholder="Think Deeply and Write Your Response Here..."
+                            className="block input input-bordered w-full p-4 max-w-lg rounded-lg opacity-50 text-black" 
                             id="answerData"
                             value={responseText}
                             onChange={(e) => setResponseText(e.target.value)}
                         />
-                        <input 
-                            disabled={!responseText}
+                        <button 
+                            disabled={!responseText && isSubmitting}
                             type="submit" 
                             value="Submit"
-                            className="block bg-gray-900 text-gray-200  py-2 px-3 rounded mt-4 hover:bg-gray-800 hover:text-gray-100" />
+                            className="block bg-gray-900 text-gray-200  py-2 px-3 rounded mt-4 hover:bg-gray-800 hover:text-gray-100" 
+                        >
+                            {isSubmitting && <p>Submitting...</p>}
+                            {!isSubmitting && <p>Submit</p>}
+                        </button>
                     </form>
                     <div className="text-black">{message}</div>
                 </div>
             </body>   
         </>
-    } else { //If the user is not logged in, display the page
+    //If the user is not logged in, display the page with a link to the login page.
+    } else { 
         return (
             <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
                 <header>
