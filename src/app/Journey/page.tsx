@@ -64,9 +64,11 @@ const Journey: React.FC = () => {
                 </header> 
                 <div className="w-screen h-screen flex justify-center items-center">
                     <form onSubmit={submitData} className="rounded px-8 pt-6 pb-8 mb-4">
-                        <label className="block text-black text-md font-bold mb-2">{prompt}</label>
-                        <input type="text" name="prompt" placeholder="Think Deeply and Write Your Response Here..."
-                            className="block input input-bordered w-full p-4 max-w-lg rounded-lg opacity-50 text-black" 
+                        <label className="block text-white text-md font-bold mb-2">{prompt}</label>
+                        <textarea 
+                            name="prompt" 
+                            placeholder="Think Deeply and Write Your Response Here..."
+                            className="block input input-bordered w-full p-4 max-w-4xl sm:max-w-10xl rounded-lg opacity-50 text-black h-40" 
                             id="answerData"
                             value={responseText}
                             onChange={(e) => setResponseText(e.target.value)}

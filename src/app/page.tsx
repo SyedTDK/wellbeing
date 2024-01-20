@@ -40,7 +40,7 @@ export default async function Home() {
             </div> 
           </header>
           <div className="w-screen h-screen flex justify-center items-center">
-           <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Journey'>Explore Today's Journey.</Link>
+           <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Explore Today's Journey.</Link>
           </div>
         </body>
     )
@@ -60,7 +60,7 @@ export default async function Home() {
           </div>
         </header>
         <div className="w-screen h-screen flex justify-center items-center">
-          <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Journey'>Explore Today's Journey.</Link>
+          <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Explore Today's Journey.</Link>
         </div>
       </body>
   )}
