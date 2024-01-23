@@ -1,11 +1,8 @@
 "use client";
 import Link from "next/link";
 import LogoutButton from "../components/LogoutButton";
-import { FormEvent } from "react";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import Router from 'next/router';
-import { set } from "firebase/database";
 
 
 //List of all the possible Daily Prompts
