@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-
+import Router from "next/router";
 const LoginPage = () => {
   const router = useRouter();
   const [loginData, setLoginData] = useState({
@@ -41,7 +41,7 @@ const LoginPage = () => {
     };
 
     redirectUser();
-  }, []);
+  }, [router]);
 
   
     return (
