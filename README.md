@@ -1,4 +1,5 @@
-This is a mental health web platform offering users daily thoughtful prompts for self-reflection. Users can sign up manually or via their Google account to save their responses for future viewing purposes.
+A dynamic and interactive web application developed using Next.js, a React framework. This project focused on engaging users through meditation, personalized daily prompts, allowing them to sign up, log in, submit responses, and revisit their entries.
 
-Developed using NextJS, Tailwind CSS, Next-auth, Google Cloud.
-- Syed Faizullah
+Developed using NextJS, Tailwind CSS, Next-auth, Google Cloud. Deployed using Vercel
+
+Syed Faizullah
