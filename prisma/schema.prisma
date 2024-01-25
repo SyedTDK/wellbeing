@@ -7,12 +7,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id            Int       @id @default(autoincrement())
+  id            Int       @id @default(sequence())
   name          String
   email         String    @unique
   emailVerified DateTime?
@@ -26,7 +26,7 @@ model User {
 
 //Fields listed in the Account table will be automatically populated by the data obtained from 3rd-party login
 model Account {
-  id                Int     @id @default(autoincrement())
+  id                Int     @id @default(sequence())
   userId            Int
   provider          String
   providerAccountId String
@@ -45,7 +45,7 @@ model Account {
 
 
 model Reflection {
-  id            Int           @id @default(autoincrement())
+  id            Int           @id @default(sequence())
   promptId      Int
   responseText  String  
   createdAt     DateTime      @default(now())
