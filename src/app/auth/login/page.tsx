@@ -85,7 +85,7 @@ const LoginPage = () => {
         </form>
         <div>
           Do not have an account?{" "}
-          <Link href="/auth/register" className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Create an account</Link>
+          <Link href="/auth/register" className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Sign up</Link>
         </div>
       </div>
       </body>
