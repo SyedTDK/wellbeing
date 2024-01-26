@@ -27,7 +27,7 @@ export default async function Home() {
   //If the user is not logged in, display the page with the sign in and register buttons.
   if(!user) {
     return (
-        <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <body className="w-screen h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           <header>
             <div className="content px-8 py-2">
               <nav className="flex items-center justify-between">
@@ -39,15 +39,15 @@ export default async function Home() {
               </nav>
             </div> 
           </header>
-          <div className="w-screen h-screen flex justify-center items-center">
-           <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Explore Today&apos;s Journey.</Link>
+          <div className="w-full h-screen flex justify-center items-center">
+           <Link className="text-center text-black font-bold text-3xl sm:text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Meditate, Elevate, Inspire: Your Journey Starts Here!</Link>
           </div>
         </body>
     )
   //If the user is logged in, display the page with the sign out button.
   } else {
     return (
-      <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <body className="w-screen h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <header>
           <div className="content px-8 py-2">
             <nav className="flex items-center justify-between">
@@ -59,8 +59,8 @@ export default async function Home() {
             </nav>
           </div>
         </header>
-        <div className="w-screen h-screen flex justify-center items-center">
-          <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Explore Today&apos;s Journey.</Link>
+        <div className="w-full h-screen flex justify-center items-center">
+          <Link className="text-center font-bold text-3xl sm:text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Meditate, Elevate, Inspire: Your Journey Starts Here!</Link>
         </div>
       </body>
   )}
