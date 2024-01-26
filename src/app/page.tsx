@@ -31,7 +31,7 @@ export default async function Home() {
           <header>
             <div className="content py-2">
               <nav className="flex items-center justify-between">
-                <h2 className="text-gray-200 font-bold text-md sm:text-4xl">WellBeing</h2>
+                <h2 className="text-gray-200 font-bold text-lg sm:text-4xl">WellBeing</h2>
                 <div className="auth flex items-center">
                   <Link className="bg-gray-200 text-gray-900  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700" href="/auth/login">Log in</Link>
                   <Link className="bg-gray-900 text-gray-200  py-2 px-3 rounded  hover:bg-gray-800 hover:text-gray-100" href="/auth/register">Sign up</Link>
@@ -49,9 +49,9 @@ export default async function Home() {
     return (
       <body className="w-full h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
         <header>
-          <div className="content px-8 py-2">
+          <div className="content py-2">
             <nav className="flex items-center justify-between">
-              <h2 className="text-gray-200 font-bold text-md sm:text-4xl">WellBeing</h2>
+              <h2 className="text-gray-200 font-bold text-md sm:text-4xl pr-2">WellBeing</h2>
               <div className="auth flex items-center">
                 <h3 className="text-gray-200 capitalize pr-2">Hello {user.name}</h3>
                 <LogoutButton />
