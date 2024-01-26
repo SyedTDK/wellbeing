@@ -49,9 +49,9 @@ const Journey: React.FC = () => {
         return <>
             <body className="bg-[url('/mountain.jpg')]">
                 <header>
-                    <div className="content px-8 py-2">
+                    <div className="content py-2">
                         <nav className="flex items-center justify-between">
-                            <h2 className="text-gray-200 font-bold text-2xl">Well Being</h2>
+                            <h2 className="text-gray-200 font-bold text-lg sm:text-4xl">WellBeing</h2>
                             <div className="auth flex items-center">
                                 <h3 className="text-gray-200 capitalize pr-2">Hello {session.user.name}</h3>
                                 <LogoutButton />
@@ -89,18 +89,18 @@ const Journey: React.FC = () => {
         return (
             <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
                 <header>
-                    <div className="content px-8 py-2">
+                    <div className="content py-2">
                         <nav className="flex items-center justify-between">
-                            <h2 className="text-gray-200 font-bold text-2xl">Well Being</h2>
+                            <h2 className="text-gray-200 font-bold text-lg sm:text-4xl">Well Being</h2>
                             <div className="auth flex items-center">
-                                <Link className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700" href="/auth/login">Sign In</Link>
-                                <Link className="bg-gray-900 text-gray-200  py-2 px-3 rounded  hover:bg-gray-800 hover:text-gray-100" href="/auth/register">Register</Link>
+                                <Link className="bg-gray-200 text-gray-900  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700" href="/auth/login">Log in</Link>
+                                <Link className="bg-gray-900 text-gray-200  py-2 px-3 rounded  hover:bg-gray-800 hover:text-gray-100" href="/auth/register">Sign up</Link>
                             </div>
                         </nav>
                     </div> 
                 </header>  
                 <div className="w-screen h-screen flex justify-center items-center">
-                    <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='../auth/login'>Start your Daily Journey by logging in!</Link>
+                    <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='../auth/login'>Get access by logging in for free!</Link>
                 </div>
             </body>
         )}
