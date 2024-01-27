@@ -100,7 +100,7 @@ const Journey: React.FC = () => {
                     </div> 
                 </header>  
                 <div className="w-full h-screen flex justify-center items-center">
-                    <Link className="text-center font-bold text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='../auth/login'>Get access by logging in for free!</Link>
+                    <Link className="text-center font-bold text-white text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='../auth/login'>Get access by logging in for free!</Link>
                 </div>
             </body>
         )}
