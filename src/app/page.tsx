@@ -51,7 +51,7 @@ export default async function Home() {
         <header>
           <div className="content py-2">
             <nav className="flex items-center justify-between">
-              <h2 className="text-gray-200 font-bold text-md sm:text-4xl pr-2">WellBeing</h2>
+              <h2 className="text-gray-200 font-bold text-md sm:text-4xl pr-2 pl-2">WellBeing</h2>
               <div className="auth flex items-center">
                 <h3 className="text-gray-200 capitalize pr-2">Hello {user.name}</h3>
                 <LogoutButton />
