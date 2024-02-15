@@ -1,3 +1,5 @@
+// This is the main page of the application. It checks if the user is logged in and displays the page accordingly.
+
 import Link  from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";

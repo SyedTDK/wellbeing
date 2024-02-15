@@ -1,3 +1,5 @@
+// This is the root layout for the app. It wraps all pages and components.
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'

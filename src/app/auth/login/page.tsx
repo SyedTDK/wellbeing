@@ -1,4 +1,4 @@
-//Layout of the login page
+// This is the login page
 "use client";
 import { getSession, signIn } from "next-auth/react";
 import Link from "next/link";

@@ -1,3 +1,5 @@
+// Purpose: The Journey page is the main page for the user to submit their daily prompt response.
+
 "use client";
 import Link from "next/link";
 import LogoutButton from "../components/LogoutButton";
@@ -80,10 +82,12 @@ const Journey: React.FC = () => {
                             {!isSubmitting && <p>Submit</p>}
                         </button>
                     </form>
+                    <Link href="#" ></Link>
                     <div className="text-black">{message}</div>
                 </div>
             </body>   
         </>
+
     //If the user is not logged in, display the page with a link to the login page.
     } else { 
         return (

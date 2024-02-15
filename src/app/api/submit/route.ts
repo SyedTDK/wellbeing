@@ -1,4 +1,4 @@
-//Submission handler that handles a POST request when the users submit their reflection to the endpoint to create new reflections.
+// This file is responsible for handling the POST request to submit a reflection
 
 import prisma from '../../libs/prisma'
 import { NextResponse } from "next/server";

@@ -1,4 +1,4 @@
-//Layout of the register page
+// Note: This is the register page
 "use client";
 import { signIn } from "next-auth/react";
 import Link from "next/link";

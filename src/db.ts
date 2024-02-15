@@ -1,3 +1,5 @@
+// This file is used to create a singleton instance of PrismaClient, which is a database client for Prisma.
+
 import { PrismaClient } from '@prisma/client'
 
 const prismaClientSingleton = () => {
