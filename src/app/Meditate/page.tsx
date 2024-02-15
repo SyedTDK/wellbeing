@@ -23,7 +23,7 @@ const Timer = () => {
     const timerProgress = (seconds / 60) * 100;
 
     return (
-        <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overscroll-none">
             <div className="w-screen h-screen flex justify-center items-center">
                 <div className="timer">
                     <p className="text-lg font-bold">Take a minute, close your eyes, focus only on breathing...</p>
