@@ -6,6 +6,7 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import prisma from "@/app/libs/prisma";
 import { SessionProvider, signOut } from "next-auth/react";
 import LogoutButton from "./components/LogoutButton";
+import Footer from "./components/Footer";
 
 //Decodes the current session data and use prisma to retrieve the current user in the database.
 const getCurrentUser = async () => {
@@ -44,6 +45,7 @@ export default async function Home() {
           <div className="w-full h-screen flex justify-center items-center">
            <Link className="text-center text-black font-bold text-3xl sm:text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Meditate, Elevate, Inspire: Your Journey Starts Here!</Link>
           </div>
+          <Footer />
         </body>
     )
   //If the user is logged in, display the page with the sign out button.
@@ -64,6 +66,7 @@ export default async function Home() {
         <div className="w-full h-screen flex justify-center items-center">
           <Link className="text-center text-black font-bold text-3xl sm:text-5xl underline decoration-sky-600 hover:decoration-blue-400" href='/Meditate'>Meditate, Elevate, Inspire: Your Journey Starts Here!</Link>
         </div>
+        <Footer />
       </body>
   )}
 }
