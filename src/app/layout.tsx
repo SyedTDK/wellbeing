@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="en">
-        <body className={`${inter.className} text-slate-100 container mx-auto p-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500`}>
+        <body className={`${inter.className}`}>
           {children}
         </body>
       </html>
