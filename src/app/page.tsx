@@ -36,8 +36,8 @@ export default async function Home() {
               <nav className="flex items-center justify-between">
                 <h2 className="text-gray-200 font-bold text-lg sm:text-4xl pr-2 pl-2">WellBeing</h2>
                 <div className="auth flex items-center">
-                  <Link className="bg-gray-200 text-gray-900  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700" href="/auth/login">Log in</Link>
-                  <Link className="bg-gray-900 text-gray-200  py-2 px-3 pr-2 rounded  hover:bg-gray-800 hover:text-gray-100" href="/auth/register">Sign up</Link>
+                  <Link className="bg-gray-200 text-gray-900  p-2 mr-4 rounded border border-gray-300 hover:bg-gray-100 hover:text-gray-700" href="/auth/login">Log in</Link>
+                  <Link className="bg-gray-900 text-gray-200  p-2 mr-4 rounded  hover:bg-gray-800 hover:text-gray-100" href="/auth/register">Sign up</Link>
                 </div>
               </nav>
             </div> 
