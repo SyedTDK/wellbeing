@@ -47,7 +47,7 @@ const LoginPage = () => {
 
   
     return (
-      <body className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <body className="">
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Login Page</h2>
           {alert.message && 

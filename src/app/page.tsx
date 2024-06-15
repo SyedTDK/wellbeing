@@ -30,7 +30,7 @@ export default async function Home() {
   //If the user is not logged in, display the page with the sign in and register buttons.
   if(!user) {
     return (
-        <body className="w-full h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overscroll-none">
+        <body className="w-full h-screen overscroll-none">
           <header>
             <div className="content py-2">
               <nav className="flex items-center justify-between">
@@ -51,7 +51,7 @@ export default async function Home() {
   //If the user is logged in, display the page with the sign out button.
   } else {
     return (
-      <body className="w-full h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overscroll-none">
+      <body className="w-full h-screen">
         <header>
           <div className="content py-2">
             <nav className="flex items-center justify-between">

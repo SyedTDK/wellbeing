@@ -93,7 +93,7 @@ const Journey: React.FC = () => {
     //If the user is not logged in, display the page with a link to the login page.
     } else { 
         return (
-            <body className="w-full h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 overscroll-none">
+            <body className="w-full h-screen overscroll-none">
                 <header>
                     <div className="content py-2">
                         <nav className="flex items-center justify-between">
