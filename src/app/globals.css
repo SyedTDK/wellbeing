@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+:root {
+    background-color: #e5e5f7;
+    opacity: 1;
+    background-image: radial-gradient(#0d0f31 0.5px, #e5e5f7 0.5px);
+    background-size: 10px 10px;
+  }
 /* Timer Progress */
 .timer-progress {
     width: 100%;
@@ -23,3 +29,4 @@
     font-weight: bold;
     color: #000000;
 }
+
