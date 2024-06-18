@@ -39,8 +39,8 @@ export default async function Home() {
                     <span className="self-center text-2xl font-semibold whitespace-nowrap">WellBeing</span>
                 </a>
                 <div className="flex items-center">
-                  <a href="/auth/login" className="px-4 py-1.5 mr-2 text-sm font-medium leading-6 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-800">Login</a>
-                  <a href="/auth/register" className="px-4 py-1.5 text-sm font-medium leading-6 text-white bg-gradient-to-br from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]">Register</a>
+                  <a href="/auth/login" className="rounded-md px-4 py-1.5 mr-2 text-sm font-medium leading-6 text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700">Login</a>
+                  <a href="/auth/register" className="rounded-md px-4 py-1.5 text-sm font-medium leading-6 text-white bg-gradient-to-br from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_15px_#08f,0_0_30px_#08f]">Register</a>
                 </div>
             </div>
           </nav>
