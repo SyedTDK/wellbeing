@@ -3,19 +3,18 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
-import Footer from "@/app/components/Footer";
 
 
 const RegisterPage = () => {
     const [registerData, setRegisterData] = useState({
-        name: "",
-        email: "",
-        password: "",
+      name: "",
+      email: "",
+      password: "",
     });
     
     const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-        setRegisterData({ ...registerData, [e.target.name]: e.target.value });
-      };
+      setRegisterData({ ...registerData, [e.target.name]: e.target.value });
+    };
     
     const [alert, setAlert] = useState({
         status: '',
@@ -37,9 +36,12 @@ const RegisterPage = () => {
     }
 
   return (
-    <body className="">
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <h1 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Create a New Account</h1>
+    <div className=" min-h-screen flex items-center justify-center">
+      <div className="max-w-md w-full p-8 rounded-lg shadow-md">
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img src="/WellBeing_Logo.png" alt="logo" className="mx-auto w-24" />
+            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight ">Create your account</h2>
+          </div>
         {alert.message && 
           <div style={{ 
               color: alert.status === 'success' ? 'green' : 'red',
@@ -48,11 +50,11 @@ const RegisterPage = () => {
               {alert.status === 'success' ? '✅' : '❌'} {alert.message}
           </div>
         }
-        <form onSubmit={onSubmit} className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <div className="md:w-1/3">
-            <label htmlFor="name" className="block text-white text-sm font-bold mb-2">Name </label>
+        <form onSubmit={onSubmit}>
+          <div className="mb-4">
+            <label htmlFor="name" className="block  text-sm font-bold mb-2">Name </label>
             <input
-              className="input input-bordered w-full max-w-xs opacity-25 text-black"
+              className="input input-bordered block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={onChange}
               value={registerData.name} 
               name="name"
@@ -61,10 +63,10 @@ const RegisterPage = () => {
             />
           </div>
 
-          <div className="md:w-1/3">
-            <label htmlFor="email" className="block text-white text-sm font-bold mb-2">Email </label>
+          <div className="mb-4">
+            <label htmlFor="email" className="block  text-sm font-bold mb-2">Email </label>
             <input
-              className="input input-bordered w-full max-w-xs opacity-25 text-black"
+              className="input input-bordered block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               onChange={onChange}
               value={registerData.email} 
               name="email" 
@@ -73,10 +75,10 @@ const RegisterPage = () => {
             />
           </div>
 
-          <div className="md:w-1/3">
-            <label htmlFor="password" className="block text-white text-sm font-bold mb-2">Password </label>
+          <div className="mb-4">
+            <label htmlFor="password" className="block  text-sm font-bold mb-2">Password </label>
             <input
-              className="input input-bordered w-full max-w-xs opacity-25 text-black" 
+              className="input input-bordered block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" 
               onChange={onChange}
               value={registerData.password}
               name="password" 
@@ -84,15 +86,17 @@ const RegisterPage = () => {
               required 
             />
           </div>
-          <button type="submit" className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Create account</button>
-          <button onClick={() => signIn('google')} className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Login with Google</button>
+          <button type="submit" className="w-full px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-white cursor-pointer font-semibold">Create</button>
+          <button onClick={() => signIn('google')} type="button" className="mt-3 flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <span>Sign up with Google</span>
+          </button>
         </form>
-        <div>
-          Already have an account? <Link href="/auth/login" className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Login here</Link>
+        <p className="mt-10 text-center text-sm text-gray-500">
+              Already signed up?
+              <Link href="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Sign in</Link>
+        </p>
         </div>
-      </div>
-      <Footer />
-    </body>
+    </div>
   );
 };
 

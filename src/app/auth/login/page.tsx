@@ -47,9 +47,12 @@ const LoginPage = () => {
 
   
     return (
-      <body className="">
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Login Page</h2>
+      <div className="  min-h-screen flex items-center justify-center">
+        <div className="max-w-md w-full p-8 rounded-lg shadow-md">
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img src="/WellBeing_Logo.png" alt="logo" className="mx-auto w-24" />
+            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight ">Welcome back</h2>
+          </div>
           {alert.message && 
             <div style={{ 
               color: alert.status === 'success' ? 'green' : 'red',
@@ -58,40 +61,55 @@ const LoginPage = () => {
               {alert.status === 'success' ? '✅' : '❌'} {alert.message}
             </div>
           }
-          <form onSubmit={onSubmit} className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div className="md:w-1/3">
-              <label htmlFor="email" className="block text-white text-sm font-bold mb-2">Email</label>
-              <input
-                className="input input-bordered w-full max-w-xs opacity-25 text-black" 
-                onChange={onChange}
-                value={loginData.email}  
-                name="email" 
-                type="email" 
-                required
-            />
-            </div>
+         <form onSubmit={onSubmit} className="space-y-6">
+              <div>
+                  <label htmlFor="email" className="block text-sm font-medium leading-6 ">Email address</label>
+                <div className="mt-2">
+                  <input 
+                    onChange={onChange}
+                    value={loginData.email}  
+                    name="email" 
+                    type="email" 
+                    autoComplete="email" 
+                    required 
+                    className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
 
-            <div className="md:w-1/3">
-              <label htmlFor="password" className="block text-white text-sm font-bold mb-2">Password</label>
-              <input 
-                className="input input-bordered w-full max-w-xs opacity-25 text-black" 
-                onChange={onChange}
-                value={loginData.password}
-                name="password" 
-                type="password" 
-                required
-            />
-            </div>
-            <button type="submit" className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Login</button>
-            <button onClick={() => signIn('google')} className="bg-transparent text-gray-200  p-1 rounded border border-gray-300 mt-6 hover:bg-gray-100 hover:text-gray-700">Login with Google</button>
-          </form>
-          <div>
-            Do not have an account?{" "}
-            <Link href="/auth/register" className="bg-transparent text-gray-200  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">Sign up</Link>
-          </div>
+              <div>
+                <div className="flex items-center justify-between">
+                  <label htmlFor="password" className="block text-sm font-medium leading-6 ">Password</label>
+                  <div className="text-sm">
+                    <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                  </div>
+                </div>
+                <div className="mt-2">
+                  <input 
+                    onChange={onChange}
+                    value={loginData.password}
+                    name="password" 
+                    type="password" 
+                    autoComplete="current-password" 
+                    required 
+                    className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+
+              <div>
+                <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+              </div>
+                <button onClick={() => signIn('google')} type="button" className="flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                  <span>Sign in with Google</span>
+                </button>
+            </form>
+
+            <p className="mt-10 text-center text-sm text-gray-500">
+              Not a member?
+              <Link href="/register" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"> Sign up for free</Link>
+            </p>
         </div>
-        <Footer />
-      </body>
+      </div>
+
     );
   };
 export default LoginPage;
